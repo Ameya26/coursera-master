@@ -10,7 +10,9 @@
     <h1>My first AnugularJS App<h1>
     <div ng-controller="MyFirstController">
       {{sayHello()}}
-      <input type="text" ng-model="name">
+      <input type="text"
+        ng-model="name"
+        ng-blur="upper()">
       Inside my input is :{{name}}
     </div>
   </body>

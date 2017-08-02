@@ -1,11 +1,17 @@
-(function () {
+(function() {
   'use strict';
 
   angular.module('myFirstApp', [])
-  .controller('MyFirstController', function ($scope) {
-    $scope.name = "";
-$scope.sayHello = function (){
-  return "Hi course era"
-};
-  });
+    .controller('MyFirstController', MyFirstController);
+
+    MyFirstController.$inject = ['$scope', '$filter'];
+
+    function MyFirstController($scope, $filter) {
+      $scope.name = "";
+
+      $scope.upper = function() {
+        var upCase = $filter('uppercase');
+        $scope.name = upCase($scope.name);
+      };
+    }
 })();
